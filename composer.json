@@ -1,0 +1,45 @@
+{
+  "name": "sp4tz/abacus-xml-exporter",
+  "description": "Generic PHP/Symfony XML exporter for Abacus timesheet imports.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sp4tz"
+    }
+  ],
+  "require": {
+    "php": ">=8.2",
+    "ext-dom": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.5 || ^11.0",
+    "symfony/config": "^6.4 || ^7.0",
+    "symfony/dependency-injection": "^6.4 || ^7.0",
+    "symfony/http-kernel": "^6.4 || ^7.0",
+    "symfony/yaml": "^6.4 || ^7.0"
+  },
+  "suggest": {
+    "symfony/http-kernel": "Required only if you want to use the Symfony bundle integration.",
+    "symfony/config": "Required only if you want to use Symfony configuration loading.",
+    "symfony/yaml": "Useful for YAML configuration in Symfony projects."
+  },
+  "autoload": {
+    "psr-4": {
+      "Sp4tz\\AbacusXmlExporter\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Sp4tz\\AbacusXmlExporter\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "Symfony": {
+      "allow-contrib": false,
+      "require": "^6.4 || ^7.0"
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}

@@ -1,0 +1,21 @@
+abacus_xml_exporter:
+  company_id: null
+  root_node: 'AbaConnectContainer'
+  record_node: 'TimeSheet'
+  strict: true
+  encoding: 'UTF-8'
+  date_format: 'Y-m-d'
+  decimal_separator: '.'
+  skip_null_values: true
+  required_fields:
+    - employee_id
+    - date
+    - duration
+  mapping:
+    employee_id: 'PersonNumber'
+    date: 'Date'
+    duration: 'Hours'
+    activity_code: 'Activity'
+    cost_center: 'CostCenter'
+    project_code: 'Project'
+    comment: 'Text'
