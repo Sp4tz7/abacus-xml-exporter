@@ -151,10 +151,6 @@ try {
 }
 ```
 
-## Publication sur Packagist
-
-1. Creer un depot GitHub contenant ce package.
-2. Tagger une version (ex: `v1.0.0`).
-3. Soumettre le depot sur Packagist.
-4. Activer l'auto-update Packagist depuis GitHub (webhook).
+## Publié sur Packagist
+ 
 
