@@ -5,7 +5,7 @@ namespace AbaConnect\Abacus\Export;
 final readonly class AbacusXmlExportConfig
 {
     public function __construct(
-        public string $mandant = '648702',
+        public string $mandant = '123456',
         public string $sourceSystem = 'Symfony',
         public string $encoding = 'UTF-8',
         public bool $prettyPrint = true,

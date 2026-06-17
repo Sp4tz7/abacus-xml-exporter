@@ -39,7 +39,7 @@ foreach ($rawRows as $row) {
 }
 
 $config = new AbacusXmlExportConfig(
-    mandant: '648702',
+    mandant: '123456',
     application: 'LOHN',
     id: 'FlatPreEntry',
     mapId: 'AbaDefault',
