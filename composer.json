@@ -1,0 +1,20 @@
+{
+  "name": "abaconnect/abacus-xml-exporter",
+  "description": "PHP library to export timesheet entries to Abacus XML.",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "abacus",
+    "xml",
+    "timesheet",
+    "payroll"
+  ],
+  "autoload": {
+    "psr-4": {
+      "AbaConnect\\Abacus\\": "src/Abacus/"
+    }
+  },
+  "require": {
+    "php": "^8.2"
+  }
+}

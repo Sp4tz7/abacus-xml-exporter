@@ -1,0 +1,19 @@
+# Composer
+/vendor/
+composer.lock
+
+# Fichiers generes
+/exportedEntries.xml
+
+# IDE
+/.idea/
+/.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# HTML de reference (documentation telechargee localement)
+*.html
+
