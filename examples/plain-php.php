@@ -10,8 +10,8 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $rawRows = [
     [
-        'ligne1' => 'EMP001',
-        'ligne2' => '2026-06-17',
+        'ligne1' => 1,
+        'ligne2' => new DateTime('2026-01-01'),
         'ligne3' => '06',
         'ligne4' => '100',
         'ligne5' => '8.5',
@@ -20,8 +20,8 @@ $rawRows = [
         'ligne8' => 'Texte paie',
     ],
     [
-        'ligne1' => 'EMP002',
-        'ligne2' => '2026-06-17',
+        'ligne1' => 2,
+        'ligne2' => new DateTime('2026-01-02'),
         'ligne3' => '06',
         'ligne4' => '100',
         'ligne5' => '8.5',
@@ -35,19 +35,21 @@ $mapper = new ArrayTimesheetEntryMapper();
 $entries = [];
 
 foreach ($rawRows as $row) {
-    $entries[] = $mapper->map((object) $row);
+    $entries[] = $mapper->map((object)$row);
 }
 
 $config = new AbacusXmlExportConfig(
     mandant: '123456',
-    application: 'LOHN',
-    id: 'FlatPreEntry',
-    mapId: 'AbaDefault',
-    version: '2020.00',
+    prettyPrint: true,
+    validateEntries: true
 );
 
 $exporter = new AbacusXmlExporter();
-$xml = $exporter->exportToString($entries, $config);
+try {
+    $xml = $exporter->exportToString($entries, $config);
+} catch (DOMException $e) {
+    throw new RuntimeException('Erreur lors de l\'export XML: ' . $e->getMessage(), previous: $e);
+}
 
 file_put_contents(__DIR__ . '/../exportedEntries.xml', $xml);
 

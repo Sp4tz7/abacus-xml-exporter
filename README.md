@@ -54,7 +54,7 @@ $config = new AbacusXmlExportConfig(
 
 ### 1) Usage PHP simple hors Symfony
 
-Lance directement l'exemple autonome :
+Lancez directement l'exemple autonome :
 
 ```powershell
 php examples/plain-php.php
@@ -91,6 +91,15 @@ $mapper = new ArrayTimesheetEntryMapper();
 - `src/Abacus/Mapper/ArrayTimesheetEntryMapper.php`
 - `src/Abacus/Mapper/ExampleTimesheetEntryMapper.php`
 
+## Contraintes `TimesheetEntry`
+
+- Obligatoires: `employeeNumber` (int), `periodDate` (DateTimeInterface), `periodNumber` (int), `payrollType` (int)
+- Optionnels: `amount` (?float), `factor` (?float), `costCentre1` (?int), `textPayrollType` (?string)
+- Validation export:
+  - `amount` / `factor`: max 10 caracteres, separateur decimal `.` requis, max 6 decimales
+  - `costCentre1`: max 12 caracteres
+  - `textPayrollType`: max 100 caracteres
+
 Namespaces utilises:
 
 - `AbaConnect\Abacus\Dto`
@@ -113,9 +122,9 @@ require __DIR__ . '/vendor/autoload.php';
 
 $entries = [
     new TimesheetEntry(
-        employeeNumber: 'EMP001',
+        employeeNumber: 1,
         periodDate: new DateTimeImmutable('2026-06-17'),
-        periodNumber: '06',
+        periodNumber: 6,
         payrollType: 100,
         amount: 8.5,
         factor: 1,

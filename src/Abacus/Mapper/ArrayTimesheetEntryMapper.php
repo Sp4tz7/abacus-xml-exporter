@@ -11,14 +11,14 @@ final class ArrayTimesheetEntryMapper implements TimesheetEntryMapperInterface
 {
     public function map(object $source): TimesheetEntry
     {
-        $employeeNumber = $this->readRequiredString($source, 'ligne1');
-        $periodDate = $this->readRequiredDate($source, 'ligne2');
-        $periodNumber = $this->readRequiredString($source, 'ligne3');
-        $payrollType = $this->readRequiredInt($source, 'ligne4');
-        $amount = $this->readRequiredFloat($source, 'ligne5');
-        $factor = $this->readRequiredInt($source, 'ligne6');
-        $costCentre1 = $this->readRequiredInt($source, 'ligne7');
-        $textPayrollType = $this->readOptionalString($source, 'ligne8');
+        $employeeNumber = $this->readValue($source, 'ligne1');
+        $periodDate = $this->readValue($source, 'ligne2');
+        $periodNumber = $this->readValue($source, 'ligne3');
+        $payrollType = $this->readValue($source, 'ligne4');
+        $amount = $this->readValue($source, 'ligne5');
+        $factor = $this->readValue($source, 'ligne6');
+        $costCentre1 = $this->readValue($source, 'ligne7');
+        $textPayrollType = $this->readValue($source, 'ligne8');
 
         return new TimesheetEntry(
             employeeNumber: $employeeNumber,
@@ -90,12 +90,12 @@ final class ArrayTimesheetEntryMapper implements TimesheetEntryMapperInterface
         return (float) $value;
     }
 
-    private function readRequiredDate(object $source, string $field): \DateTimeImmutable
+    private function readRequiredDate(object $source, string $field): \DateTime
     {
-        $value = $this->readRequiredString($source, $field);
+        $value = $this->readValue($source, $field);
 
         try {
-            return new \DateTimeImmutable($value);
+            return $value;
         } catch (\Exception $e) {
             throw new \InvalidArgumentException(sprintf('Date invalide pour %s: %s', $field, $value), 0, $e);
         }

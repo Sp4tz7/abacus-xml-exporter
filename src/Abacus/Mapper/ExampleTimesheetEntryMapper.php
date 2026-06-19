@@ -20,7 +20,7 @@ final class ExampleTimesheetEntryMapper implements TimesheetEntryMapperInterface
         $user = $source->getUser();
 
         return new TimesheetEntry(
-            employeeNumber: (string) $user->getEmployeeNumber(),
+            employeeNumber: (int) $user->getEmployeeNumber(),
             periodDate: $source->getDate(),
             periodNumber: $source->getHours(),
             payrollType: $source->getPayrollType(),
