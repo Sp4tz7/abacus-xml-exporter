@@ -1,5 +1,12 @@
 {
   "name": "sp4tz/abacus-xml-exporter",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Sp4tz",
+      "email": "sp4tz7@gmail.com"
+    }
+  ],
   "description": "PHP library to export timesheet entries to Abacus XML.",
   "type": "library",
   "license": "MIT",
