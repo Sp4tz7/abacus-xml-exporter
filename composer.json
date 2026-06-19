@@ -1,5 +1,5 @@
 {
-  "name": "abaconnect/abacus-xml-exporter",
+  "name": "sp4tz/abacus-xml-exporter",
   "description": "PHP library to export timesheet entries to Abacus XML.",
   "type": "library",
   "license": "MIT",

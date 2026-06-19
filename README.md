@@ -1,8 +1,8 @@
 # Abacus XML Exporter (PHP)
 
-Librairie PHP pour convertir des entrees de feuille de temps en XML Abacus LOHN `FlatPreEntry`.
+Librairie PHP pour convertir des entrées de feuille de temps en XML Abacus LOHN `FlatPreEntry`.
 
-## Prerequis
+## Prérequis
 
 - PHP 8.2+
 - Composer
@@ -12,49 +12,41 @@ Librairie PHP pour convertir des entrees de feuille de temps en XML Abacus LOHN 
 Dans un projet PHP classique ou Symfony:
 
 ```powershell
-composer require abaconnect/abacus-xml-exporter
+composer require sp4tz/abacus-xml-exporter
 ```
 
-En developpement local:
+En développement local:
 
 ```powershell
 composer dump-autoload
 ```
 
-## Compatibilite Abacus
+## Compatibilité Abacus
 
 Ce package cible **Abacus LOHN FlatPreEntry 2020.00**.
 
-Documentation officielle:
+Documentation officielle Abacus: 
 
 https://downloads.abacus.ch/fileadmin/ablage/abaconnect/htmlfiles/lohn/LOHN__FlatPreEntry_2020.00_AbaDefault_FR.html
 
 ## Configuration obligatoire
 
-Avant le premier export, configure les donnees de ta societe dans `src/Abacus/Export/AbacusXmlExportConfig.php`.
+Avant le premier export, configurez les données de la société dans `src/Abacus/Export/AbacusXmlExportConfig.php`.
 
-Champs principaux a renseigner:
+Champs principaux à renseigner :
 
 - `mandant`
-- `application`
-- `id`
-- `mapId`
-- `version`
 
 Options utiles:
 
-- `validateEntries` : active ou desactive la validation avant export
+- `validateEntries` : active ou désactive la validation avant export
 - `prettyPrint` : XML lisible (dev) ou compact (prod)
 
 Exemple:
 
 ```php
 $config = new AbacusXmlExportConfig(
-    mandant: '648702',
-    application: 'LOHN',
-    id: 'FlatPreEntry',
-    mapId: 'AbaDefault',
-    version: '2020.00',
+    mandant: '123456',
 );
 ```
 
@@ -62,13 +54,13 @@ $config = new AbacusXmlExportConfig(
 
 ### 1) Usage PHP simple hors Symfony
 
-Lance directement l'exemple autonome:
+Lance directement l'exemple autonome :
 
 ```powershell
 php examples/plain-php.php
 ```
 
-Cet exemple montre le flux complet:
+Cet exemple montre le flux complet :
 
 - tableaux bruts `ligne1..ligne8`
 - `ArrayTimesheetEntryMapper`
@@ -140,7 +132,7 @@ echo $exporter->exportToString($entries, $config);
 
 ## Gestion d'erreurs
 
-Les erreurs d'export levent `AbaConnect\Abacus\Exception\AbacusXmlExportException`.
+Les erreurs d'export lèvent `AbaConnect\Abacus\Exception\AbacusXmlExportException`.
 
 
 ```php
