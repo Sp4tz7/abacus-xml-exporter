@@ -127,8 +127,8 @@ final class AbacusXmlExporter
                 throw new AbacusXmlExportException(sprintf('Entrée #%d: PeriodDate est obligatoire.', $line));
             }
 
-            if ($entry->periodNumber <= 0) {
-                throw new AbacusXmlExportException(sprintf('Entrée #%d: PeriodNumber est obligatoire et doit être > 0.', $line));
+            if ($entry->periodNumber === null) {
+                throw new AbacusXmlExportException(sprintf('Entrée #%d: PeriodNumber est obligatoire.', $line));
             }
 
             if ($entry->payrollType <= 0) {
